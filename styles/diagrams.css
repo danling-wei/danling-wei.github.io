@@ -1,0 +1,192 @@
+/* ============================================================
+   diagrams.css
+   Inline SVG architecture diagrams used on project case-study
+   pages. Apple-flavored dark — thin strokes · subtle aurora
+   glow · mono technical labels · accent purple/cyan highlight.
+   ============================================================ */
+
+/* ---------- Figure container (project detail pages) ---------- */
+.arch-figure {
+  position: relative;
+  padding: 2.25rem 2.5rem 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(
+      90% 140% at 50% 0%,
+      rgba(120, 119, 198, 0.10),
+      transparent 65%
+    ),
+    radial-gradient(
+      60% 100% at 100% 100%,
+      rgba(56, 189, 248, 0.06),
+      transparent 70%
+    ),
+    var(--surface-2);
+  overflow: hidden;
+  transition:
+    background 0.45s var(--ease),
+    border-color 0.45s var(--ease);
+}
+.arch-figure:hover {
+  border-color: var(--line-strong);
+}
+
+.arch-caption {
+  margin: 1.25rem 0 0;
+  font-family: var(--font);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: var(--muted);
+  max-width: 70ch;
+}
+.arch-caption strong {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .arch-figure {
+    padding: 1.5rem 1.25rem 1.1rem;
+  }
+}
+
+/* ---------- SVG canvas ---------- */
+.arch-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  font-family: var(--font);
+  overflow: visible;
+}
+
+/* ---------- Nodes ---------- */
+.arch-node {
+  fill: rgba(255, 255, 255, 0.025);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+  transition: fill 0.4s var(--ease), stroke 0.4s var(--ease);
+}
+
+.arch-node-accent {
+  fill: rgba(120, 119, 198, 0.10);
+  stroke: rgba(150, 149, 220, 0.55);
+}
+
+.arch-node-output {
+  fill: rgba(48, 209, 88, 0.06);
+  stroke: rgba(48, 209, 88, 0.4);
+}
+
+.arch-node-input {
+  fill: rgba(56, 189, 248, 0.06);
+  stroke: rgba(56, 189, 248, 0.40);
+}
+
+/* Extra-bright accent for the single most-emphasised step in a flow. */
+.arch-node-highlight {
+  fill: rgba(150, 149, 220, 0.16);
+  stroke: rgba(200, 199, 245, 0.85);
+  stroke-width: 1.5;
+}
+
+.arch-figure:hover .arch-node {
+  stroke: rgba(255, 255, 255, 0.28);
+}
+.arch-figure:hover .arch-node-accent {
+  stroke: rgba(170, 169, 235, 0.75);
+}
+.arch-figure:hover .arch-node-output {
+  stroke: rgba(48, 209, 88, 0.6);
+}
+.arch-figure:hover .arch-node-input {
+  stroke: rgba(56, 189, 248, 0.6);
+}
+.arch-figure:hover .arch-node-highlight {
+  stroke: rgba(220, 219, 255, 0.95);
+}
+
+/* ---------- Text labels ---------- */
+.arch-cat {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: #6e6e73;
+}
+
+.arch-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  fill: #f5f5f7;
+}
+
+.arch-sub {
+  font-family: var(--font);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  fill: #86868b;
+}
+
+/* ---------- Region groupings (e.g. orchestration layer, shared ctx) ---------- */
+.arch-region {
+  fill: rgba(255, 255, 255, 0.012);
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 5 5;
+}
+.arch-region-accent {
+  fill: rgba(120, 119, 198, 0.05);
+  stroke: rgba(150, 149, 220, 0.40);
+  stroke-width: 1;
+  stroke-dasharray: 5 5;
+}
+
+/* ---------- Connectors ---------- */
+.arch-flow {
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1.25;
+  fill: none;
+  transition: stroke 0.4s var(--ease);
+}
+.arch-flow-dashed {
+  stroke-dasharray: 3 3;
+  stroke: rgba(255, 255, 255, 0.18);
+}
+.arch-flow-label {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: #86868b;
+}
+.arch-figure:hover .arch-flow {
+  stroke: rgba(255, 255, 255, 0.42);
+}
+
+/* ---------- Chips (sub-stages, indices, channels) ---------- */
+.arch-chip {
+  fill: rgba(255, 255, 255, 0.04);
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1;
+}
+.arch-chip-accent {
+  fill: rgba(150, 149, 220, 0.16);
+  stroke: rgba(200, 199, 245, 0.55);
+  stroke-width: 1;
+}
+.arch-chip-text {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  fill: #d2d2d7;
+}
+

@@ -22,12 +22,16 @@
   <link rel="stylesheet" href="../styles/components.css" />
   <link rel="stylesheet" href="../styles/hero.css" />
   <link rel="stylesheet" href="../styles/sections.css" />
+  <link rel="stylesheet" href="../styles/diagrams.css" />
   <link rel="stylesheet" href="../styles/footer.css" />
   <link rel="stylesheet" href="../styles/project.css" />
 
   <meta property="og:title" content="AI Skills Orchestrator — Danling Wei" />
   <meta property="og:description" content="Agentic authoring & QA agents for enterprise CMS — Planner / Executor / QA flows." />
   <meta property="og:type" content="article" />
+
+  <!-- Analytics (GA4) — see scripts/analytics.js to set Measurement ID -->
+  <script src="../scripts/analytics.js"></script>
 </head>
 <body>
 
@@ -113,11 +117,136 @@
     </div>
   </section>
 
+  <!-- ===================== ARCHITECTURE ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Architecture</span>
+        <h2 class="section-title">How the system <em>flows</em>.</h2>
+      </div>
+
+      <figure class="arch-figure reveal" data-delay="1" style="margin:0;">
+        <svg class="arch-svg" viewBox="0 0 880 390" role="img" aria-label="Architecture: A user submits a task inside AEM; the orchestration layer pulls tasks from AEM (poll-based). Inside orchestration, Planner and Executor share a working context while QA runs in isolation outside that context. A guardrails layer wraps every run with retry, skill-schema validation, fallbacks, and structured logging. On QA fail the run loops back to the Executor for retry; on pass, the result is published into AEM/CMS as a draft, where the user can Accept the change or Roll back to the prior version.">
+          <defs>
+            <marker id="arr-p1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0 L10 5 L0 10 z" fill="rgba(255,255,255,0.55)"/>
+            </marker>
+            <marker id="arr-p1-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0 L10 5 L0 10 z" fill="rgba(255,255,255,0.32)"/>
+            </marker>
+          </defs>
+
+          <!-- Region: Orchestration layer -->
+          <text class="arch-cat" x="240" y="22">ORCHESTRATION LAYER</text>
+          <rect class="arch-region" x="230" y="30" width="630" height="260" rx="18"/>
+
+          <!-- Region: Shared context (encloses Planner + Executor only) -->
+          <rect class="arch-region-accent" x="255" y="62" width="325" height="140" rx="14"/>
+          <text class="arch-cat" x="265" y="80">SHARED CONTEXT</text>
+
+          <!-- Region: Guardrails (cross-cutting, full orchestration width) -->
+          <rect class="arch-region" x="255" y="232" width="565" height="50" rx="12"/>
+          <text class="arch-cat" x="265" y="248">GUARDRAILS</text>
+
+          <!-- Node: User submit (AEM input) -->
+          <g>
+            <rect class="arch-node arch-node-input" x="20" y="40" width="160" height="74" rx="12"/>
+            <text class="arch-cat" x="100" y="60" text-anchor="middle">USER · AEM</text>
+            <text class="arch-title" x="100" y="82" text-anchor="middle">Submit task</text>
+            <text class="arch-sub" x="100" y="98" text-anchor="middle">Author request</text>
+          </g>
+
+          <!-- Node: User decision (AEM review) -->
+          <g>
+            <rect class="arch-node arch-node-output" x="20" y="290" width="160" height="74" rx="12"/>
+            <text class="arch-cat" x="100" y="310" text-anchor="middle">USER · REVIEW</text>
+            <text class="arch-title" x="100" y="332" text-anchor="middle">Accept · Rollback</text>
+            <text class="arch-sub" x="100" y="348" text-anchor="middle">Versioned in AEM</text>
+          </g>
+
+          <!-- Node: Planner (in shared context) -->
+          <g>
+            <rect class="arch-node" x="270" y="98" width="135" height="70" rx="11"/>
+            <text class="arch-cat" x="337" y="116" text-anchor="middle">AGENT</text>
+            <text class="arch-title" x="337" y="137" text-anchor="middle">Planner</text>
+            <text class="arch-sub" x="337" y="153" text-anchor="middle">Decompose</text>
+          </g>
+
+          <!-- Node: Executor (in shared context, accent) -->
+          <g>
+            <rect class="arch-node arch-node-accent" x="425" y="98" width="140" height="70" rx="11"/>
+            <text class="arch-cat" x="495" y="116" text-anchor="middle">AGENT</text>
+            <text class="arch-title" x="495" y="137" text-anchor="middle">Executor</text>
+            <text class="arch-sub" x="495" y="153" text-anchor="middle">Tool calling</text>
+          </g>
+
+          <!-- Node: QA (outside shared context) -->
+          <g>
+            <rect class="arch-node" x="620" y="118" width="200" height="74" rx="11"/>
+            <text class="arch-cat" x="720" y="138" text-anchor="middle">AGENT · ISOLATED</text>
+            <text class="arch-title" x="720" y="160" text-anchor="middle">QA</text>
+            <text class="arch-sub" x="720" y="176" text-anchor="middle">Validate · Score</text>
+          </g>
+
+          <!-- Guardrail chips (inside guardrails sub-region) -->
+          <rect class="arch-chip" x="278" y="256" width="78" height="22" rx="11"/>
+          <text class="arch-chip-text" x="317" y="271" text-anchor="middle">Retry</text>
+
+          <rect class="arch-chip" x="365" y="256" width="160" height="22" rx="11"/>
+          <text class="arch-chip-text" x="445" y="271" text-anchor="middle">Skill schema validation</text>
+
+          <rect class="arch-chip" x="535" y="256" width="92" height="22" rx="11"/>
+          <text class="arch-chip-text" x="581" y="271" text-anchor="middle">Fallbacks</text>
+
+          <rect class="arch-chip" x="637" y="256" width="100" height="22" rx="11"/>
+          <text class="arch-chip-text" x="687" y="271" text-anchor="middle">Logging</text>
+
+          <!-- Node: AEM / CMS publish (output) -->
+          <g>
+            <rect class="arch-node arch-node-output" x="540" y="315" width="200" height="58" rx="12"/>
+            <text class="arch-cat" x="640" y="335" text-anchor="middle">PUBLISH</text>
+            <text class="arch-title" x="640" y="355" text-anchor="middle">AEM / CMS</text>
+          </g>
+
+          <!-- Connector: User submit → Orchestration (pull-based) -->
+          <line class="arch-flow" x1="180" y1="77" x2="226" y2="77" marker-end="url(#arr-p1)"/>
+          <text class="arch-flow-label" x="203" y="65" text-anchor="middle">PULL ↻</text>
+
+          <!-- Connector: Planner ⇄ Executor (shared context exchange) -->
+          <line class="arch-flow" x1="407" y1="125" x2="421" y2="125" marker-end="url(#arr-p1)"/>
+          <line class="arch-flow" x1="423" y1="143" x2="409" y2="143" marker-end="url(#arr-p1)"/>
+
+          <!-- Connector: Executor → QA -->
+          <line class="arch-flow" x1="567" y1="155" x2="616" y2="155" marker-end="url(#arr-p1)"/>
+
+          <!-- Connector: QA fail → Executor (loop back) -->
+          <path class="arch-flow arch-flow-dashed"
+                d="M 660 192 C 660 218 540 222 495 170"
+                marker-end="url(#arr-p1-dim)"/>
+          <text class="arch-flow-label" x="580" y="217" text-anchor="middle">FAIL · RETRY</text>
+
+          <!-- Connector: QA pass → AEM / CMS publish (routed around guardrails on the right) -->
+          <path class="arch-flow"
+                d="M 800 192 C 800 290 760 305 720 313"
+                marker-end="url(#arr-p1)"/>
+          <text class="arch-flow-label" x="813" y="245" text-anchor="middle">PASS</text>
+
+          <!-- Connector: AEM / CMS publish → User decision (notify for accept / rollback) -->
+          <line class="arch-flow" x1="540" y1="343" x2="186" y2="343" marker-end="url(#arr-p1)"/>
+          <text class="arch-flow-label" x="365" y="333" text-anchor="middle">PUBLISH · NOTIFY</text>
+        </svg>
+        <figcaption class="arch-caption reveal" data-delay="2">
+          The user submits a task <strong>inside AEM</strong>; the orchestrator <strong>pulls</strong> it from the inbox (poll-based — AEM is never pushed to). <strong>Planner</strong> and <strong>Executor</strong> share a working context (plan state, intermediate tool results), while <strong>QA</strong> runs <strong>outside that context</strong> and validates independently against schema, structure, and multilingual rules. A cross-cutting <strong>guardrails layer</strong> wraps every run with <strong>retry</strong>, <strong>skill-schema validation</strong>, <strong>fallbacks</strong>, and structured <strong>logging</strong>, so transient LLM or CMS failures never reach production. A QA <strong>fail loops back to the Executor</strong> for a retry; on pass, the result is <strong>published as a draft</strong> in AEM/CMS, where the user can <strong>Accept</strong> the change or <strong>Roll back</strong> to the prior version.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ===================== HIGHLIGHTS ===================== -->
   <section class="section">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag">02 — Highlights</span>
+        <span class="section-tag">03 — Highlights</span>
         <h2 class="section-title">What I <em>built</em>.</h2>
       </div>
 
@@ -157,17 +286,20 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag">03 — Stack</span>
+        <span class="section-tag">04 — Stack</span>
         <h2 class="section-title">Tools &amp; <em>techniques</em>.</h2>
       </div>
 
       <div class="project-stack reveal">
         <span class="tag">Python</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">LangGraph</span>
         <span class="tag">Tool Calling</span>
         <span class="tag">Planner / Executor / QA</span>
         <span class="tag">Schema-bound Skills</span>
         <span class="tag">Structured Output</span>
         <span class="tag">Validation Gates</span>
+        <span class="tag">Retries · Fallbacks</span>
         <span class="tag">Human-in-the-Loop</span>
         <span class="tag">LLM Evaluation</span>
         <span class="tag">Observability</span>

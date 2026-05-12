@@ -22,12 +22,16 @@
   <link rel="stylesheet" href="../styles/components.css" />
   <link rel="stylesheet" href="../styles/hero.css" />
   <link rel="stylesheet" href="../styles/sections.css" />
+  <link rel="stylesheet" href="../styles/diagrams.css" />
   <link rel="stylesheet" href="../styles/footer.css" />
   <link rel="stylesheet" href="../styles/project.css" />
 
   <meta property="og:title" content="Agentic RAG Chatbot — Danling Wei" />
   <meta property="og:description" content="Upgrading a production RAG chatbot with intent routing, hybrid retrieval, and reranking." />
   <meta property="og:type" content="article" />
+
+  <!-- Analytics (GA4) — see scripts/analytics.js to set Measurement ID -->
+  <script src="../scripts/analytics.js"></script>
 </head>
 <body>
 
@@ -113,11 +117,165 @@
     </div>
   </section>
 
+  <!-- ===================== ARCHITECTURE ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Architecture</span>
+        <h2 class="section-title">How the system <em>flows</em>.</h2>
+      </div>
+
+      <figure class="arch-figure reveal" data-delay="1" style="margin:0;">
+        <svg class="arch-svg" viewBox="0 0 920 510" role="img" aria-label="Architecture: A three-layer agentic RAG. Indexing is offline and tool-aware — PDFs go through Docling, HTML through H1/H2/H3 hierarchy detection, DOCX through a layout-aware splitter, all chunked with table-aware enrichment and embedded into per-intent indices. Online, the Intent layer uses tool calling to select an index, the query is then rewritten for that index, hybrid retrieval (BM25 + Vector) returns candidates, and a reranker hands the top passages to the answering LLM. An LLM-as-Judge continuously samples runs and grades Faithfulness, Recall, Accuracy, and Precision against curated evaluation sets.">
+          <defs>
+            <marker id="arr-p2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0 L10 5 L0 10 z" fill="rgba(255,255,255,0.55)"/>
+            </marker>
+          </defs>
+
+          <!-- ===== REGIONS ===== -->
+          <text class="arch-cat" x="30" y="14">INDEXING LAYER · OFFLINE</text>
+          <rect class="arch-region" x="20" y="22" width="880" height="180" rx="18"/>
+
+          <text class="arch-cat" x="30" y="225">QUERY LAYER · ONLINE</text>
+          <rect class="arch-region" x="20" y="233" width="880" height="170" rx="18"/>
+
+          <text class="arch-cat" x="30" y="425">EVAL · CONTINUOUS</text>
+          <rect class="arch-region" x="20" y="433" width="880" height="70" rx="18"/>
+
+          <!-- ===== INDEXING LAYER ===== -->
+          <!-- Sources -->
+          <rect class="arch-node arch-node-input" x="40" y="50" width="80" height="34" rx="9"/>
+          <text class="arch-title" x="80" y="72" text-anchor="middle">PDF</text>
+
+          <rect class="arch-node arch-node-input" x="40" y="92" width="80" height="34" rx="9"/>
+          <text class="arch-title" x="80" y="114" text-anchor="middle">HTML</text>
+
+          <rect class="arch-node arch-node-input" x="40" y="134" width="80" height="34" rx="9"/>
+          <text class="arch-title" x="80" y="156" text-anchor="middle">DOCX</text>
+
+          <!-- Specialized parsers (accent — different tool per format) -->
+          <rect class="arch-node arch-node-accent" x="140" y="50" width="170" height="34" rx="9"/>
+          <text class="arch-title" x="225" y="72" text-anchor="middle">Docling parser</text>
+
+          <rect class="arch-node arch-node-accent" x="140" y="92" width="170" height="34" rx="9"/>
+          <text class="arch-title" x="225" y="114" text-anchor="middle">H1 · H2 · H3 hierarchy</text>
+
+          <rect class="arch-node arch-node-accent" x="140" y="134" width="170" height="34" rx="9"/>
+          <text class="arch-title" x="225" y="156" text-anchor="middle">Layout splitter</text>
+
+          <!-- Pipeline -->
+          <rect class="arch-node" x="355" y="77" width="160" height="64" rx="11"/>
+          <text class="arch-cat" x="435" y="95" text-anchor="middle">PIPELINE</text>
+          <text class="arch-title" x="435" y="116" text-anchor="middle">Chunk · Embed</text>
+          <text class="arch-sub" x="435" y="131" text-anchor="middle">Table-aware</text>
+
+          <!-- Indices -->
+          <text class="arch-cat" x="640" y="44" text-anchor="middle">INDICES</text>
+          <rect class="arch-node" x="560" y="50" width="160" height="34" rx="9"/>
+          <text class="arch-title" x="640" y="72" text-anchor="middle">Idx 1</text>
+
+          <rect class="arch-node" x="560" y="92" width="160" height="34" rx="9"/>
+          <text class="arch-title" x="640" y="114" text-anchor="middle">Idx 2</text>
+
+          <rect class="arch-node" x="560" y="134" width="160" height="34" rx="9"/>
+          <text class="arch-title" x="640" y="156" text-anchor="middle">Idx 3</text>
+
+          <!-- Source → Tool -->
+          <line class="arch-flow" x1="120" y1="67" x2="136" y2="67" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="120" y1="109" x2="136" y2="109" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="120" y1="151" x2="136" y2="151" marker-end="url(#arr-p2)"/>
+
+          <!-- Tool → Pipeline (fan-in) -->
+          <line class="arch-flow" x1="310" y1="67" x2="351" y2="92" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="310" y1="109" x2="351" y2="109" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="310" y1="151" x2="351" y2="126" marker-end="url(#arr-p2)"/>
+
+          <!-- Pipeline → Indices (fan-out) -->
+          <line class="arch-flow" x1="515" y1="92" x2="556" y2="67" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="515" y1="109" x2="556" y2="109" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="515" y1="126" x2="556" y2="151" marker-end="url(#arr-p2)"/>
+
+          <!-- ===== QUERY LAYER ===== -->
+          <g>
+            <rect class="arch-node arch-node-input" x="40" y="295" width="100" height="66" rx="11"/>
+            <text class="arch-cat" x="90" y="313" text-anchor="middle">INPUT</text>
+            <text class="arch-title" x="90" y="334" text-anchor="middle">Query</text>
+            <text class="arch-sub" x="90" y="350" text-anchor="middle">User question</text>
+          </g>
+
+          <g>
+            <rect class="arch-node arch-node-accent" x="160" y="295" width="175" height="66" rx="11"/>
+            <text class="arch-cat" x="247" y="313" text-anchor="middle">AGENT · TOOL CALL</text>
+            <text class="arch-title" x="247" y="334" text-anchor="middle">Intent</text>
+            <text class="arch-sub" x="247" y="350" text-anchor="middle">Pick index</text>
+          </g>
+
+          <g>
+            <rect class="arch-node arch-node-highlight" x="355" y="295" width="160" height="66" rx="11"/>
+            <text class="arch-cat" x="435" y="313" text-anchor="middle">LLM REWRITE</text>
+            <text class="arch-title" x="435" y="334" text-anchor="middle">Query Rewrite</text>
+            <text class="arch-sub" x="435" y="350" text-anchor="middle">Index-specific</text>
+          </g>
+
+          <g>
+            <rect class="arch-node arch-node-accent" x="535" y="295" width="160" height="66" rx="11"/>
+            <text class="arch-cat" x="615" y="313" text-anchor="middle">HYBRID</text>
+            <text class="arch-title" x="615" y="334" text-anchor="middle">Retrieval</text>
+            <text class="arch-sub" x="615" y="350" text-anchor="middle">BM25 + Vector</text>
+          </g>
+
+          <g>
+            <rect class="arch-node arch-node-output" x="715" y="295" width="160" height="66" rx="11"/>
+            <text class="arch-cat" x="795" y="313" text-anchor="middle">OUTPUT</text>
+            <text class="arch-title" x="795" y="334" text-anchor="middle">Rerank → LLM</text>
+            <text class="arch-sub" x="795" y="350" text-anchor="middle">Answer</text>
+          </g>
+
+          <!-- Forward connectors -->
+          <line class="arch-flow" x1="140" y1="328" x2="156" y2="328" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="335" y1="328" x2="351" y2="328" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="515" y1="328" x2="531" y2="328" marker-end="url(#arr-p2)"/>
+          <line class="arch-flow" x1="695" y1="328" x2="711" y2="328" marker-end="url(#arr-p2)"/>
+
+          <!-- Cross-region: Indices → Hybrid Retrieval -->
+          <path class="arch-flow" d="M 640 128 C 640 200 615 230 615 291" marker-end="url(#arr-p2)"/>
+          <text class="arch-flow-label" x="660" y="215" text-anchor="middle">FEEDS RETRIEVAL</text>
+
+          <!-- ===== EVAL LAYER ===== -->
+          <g>
+            <rect class="arch-node arch-node-accent" x="40" y="455" width="200" height="42" rx="11"/>
+            <text class="arch-cat" x="140" y="472" text-anchor="middle">AGENT · LLM</text>
+            <text class="arch-title" x="140" y="491" text-anchor="middle">LLM-as-Judge</text>
+          </g>
+
+          <!-- Metric chips -->
+          <rect class="arch-chip" x="275" y="466" width="125" height="22" rx="11"/>
+          <text class="arch-chip-text" x="338" y="481" text-anchor="middle">Faithfulness</text>
+
+          <rect class="arch-chip" x="410" y="466" width="80" height="22" rx="11"/>
+          <text class="arch-chip-text" x="450" y="481" text-anchor="middle">Recall</text>
+
+          <rect class="arch-chip" x="500" y="466" width="95" height="22" rx="11"/>
+          <text class="arch-chip-text" x="548" y="481" text-anchor="middle">Accuracy</text>
+
+          <rect class="arch-chip" x="605" y="466" width="100" height="22" rx="11"/>
+          <text class="arch-chip-text" x="655" y="481" text-anchor="middle">Precision</text>
+
+          <text class="arch-flow-label" x="875" y="481" text-anchor="end">↑ samples retrieval &amp; answers</text>
+        </svg>
+        <figcaption class="arch-caption reveal" data-delay="2">
+          Indexing is <strong>offline and tool-aware</strong> — PDFs go through <strong>Docling</strong>, HTML uses <strong>H1·H2·H3 hierarchy</strong> detection, DOCX runs through a layout-aware splitter, and table-aware chunking preserves structure across formats. Online, <strong>Intent</strong> uses <strong>tool calling</strong> to pick the right index; the query is then <strong>rewritten</strong> for that index, and <strong>Hybrid Retrieval</strong> (BM25 + Vector) returns candidates that are reranked before the LLM answers. An <strong>LLM-as-Judge</strong> continuously samples runs and grades <strong>faithfulness</strong>, <strong>recall</strong>, <strong>accuracy</strong>, and <strong>precision</strong> against curated evaluation sets.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ===================== HIGHLIGHTS ===================== -->
   <section class="section">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag">02 — Highlights</span>
+        <span class="section-tag">03 — Highlights</span>
         <h2 class="section-title">What I <em>built</em>.</h2>
       </div>
 
@@ -166,7 +324,7 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag">03 — Stack</span>
+        <span class="section-tag">04 — Stack</span>
         <h2 class="section-title">Tools &amp; <em>techniques</em>.</h2>
       </div>
 
