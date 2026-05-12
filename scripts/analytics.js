@@ -17,7 +17,7 @@
   "use strict";
 
   // ↓↓↓ REPLACE WITH YOUR GA4 MEASUREMENT ID ↓↓↓
-  var GA_ID = "G-XXXXXXXXXX";
+  var GA_ID = "G-3SNV7FYJZZ";
   // ↑↑↑ REPLACE WITH YOUR GA4 MEASUREMENT ID ↑↑↑
 
   if (!GA_ID || GA_ID.indexOf("XXXX") !== -1) return;

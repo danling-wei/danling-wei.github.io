@@ -82,6 +82,7 @@
   background: #30d158;
   box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.18);
   display: inline-block;
+  vertical-align: middle;
   animation: pulse 2.2s ease-in-out infinite;
 }
 
