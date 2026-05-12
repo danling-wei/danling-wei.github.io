@@ -1,0 +1,165 @@
+/* ============================================================
+   components.css
+   Buttons · Tags · Status dot · Metric strip · Side meta
+   Apple-style pill buttons + elevated card surfaces
+   ============================================================ */
+
+/* ---------- Buttons (Apple pill) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  background: transparent;
+  font-family: var(--font);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  transition:
+    background 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.32);
+  transform: translateY(-1px);
+}
+.btn.solid {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.btn.solid:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+.btn .arrow {
+  transition: transform 0.35s var(--ease);
+}
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Tag pills ---------- */
+.tag {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-dim);
+  border-radius: var(--radius-pill);
+  transition:
+    background 0.25s var(--ease),
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+.tag:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+/* ---------- Status indicator ---------- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.92); }
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #30d158;
+  box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.18);
+  display: inline-block;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* ---------- Metric strip (Apple card grid) ---------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 5rem 0 0;
+}
+.metric {
+  padding: 2rem 1.75rem 1.75rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition:
+    transform 0.4s var(--ease),
+    background 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+.metric:hover {
+  transform: translateY(-3px);
+  background: var(--surface-3);
+  border-color: var(--line-strong);
+}
+.metric-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--text);
+}
+.metric-num .unit {
+  font-weight: 500;
+  font-size: 0.55em;
+  color: var(--muted);
+  margin-left: 0.08em;
+  letter-spacing: -0.02em;
+}
+.metric-label {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--muted);
+  max-width: 24ch;
+  line-height: 1.45;
+}
+@media (max-width: 880px) {
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .metrics { grid-template-columns: 1fr; }
+}
+
+/* ---------- Side meta column (about/skills) ---------- */
+.about-side {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.about-side div span {
+  display: block;
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  margin-top: 0.35rem;
+}

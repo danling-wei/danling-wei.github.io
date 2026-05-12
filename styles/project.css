@@ -1,0 +1,287 @@
+/* ============================================================
+   project.css
+   Case-study detail page · Hero · Highlights · Next nav
+   ============================================================ */
+
+/* ---------- Back link ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  transition:
+    color 0.3s var(--ease),
+    gap 0.3s var(--ease);
+}
+.back-link::before {
+  content: "←";
+  font-size: 1.05em;
+  transition: transform 0.3s var(--ease);
+}
+.back-link:hover {
+  color: var(--text);
+  gap: 0.65rem;
+}
+.back-link:hover::before {
+  transform: translateX(-3px);
+}
+
+/* ---------- Project hero ---------- */
+.project-hero {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+.project-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  margin: 0 0 1.25rem;
+  max-width: 18ch;
+  background: linear-gradient(180deg, #ffffff 0%, #b8b8bd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.project-title em {
+  font-style: normal;
+  font-weight: 300;
+  background: linear-gradient(180deg, #86868b 0%, #4a4a4d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-sub {
+  font-family: var(--font);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: -0.018em;
+  color: var(--text-dim);
+  max-width: 56ch;
+  margin: 0 0 3rem;
+}
+.project-sub em {
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* Reuse .metrics layout but adjust spacing in project hero */
+.project-hero .metrics {
+  margin-top: 1rem;
+}
+
+/* ---------- Highlights — numbered list of feature cards ---------- */
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.highlight {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 2.5rem;
+  padding: 2.25rem 2.5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  align-items: start;
+  transition:
+    background 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.highlight:hover {
+  background: var(--surface-3);
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+.highlight-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--muted);
+  padding-top: 0.1rem;
+}
+.highlight-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+.highlight-body p {
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: var(--muted);
+  margin: 0;
+  max-width: 62ch;
+}
+.highlight-body p strong {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+@media (max-width: 720px) {
+  .highlight {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.85rem 1.5rem;
+  }
+  .highlight-num {
+    font-size: 1.6rem;
+  }
+}
+
+/* ---------- Stack on detail page ---------- */
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  max-width: 720px;
+}
+
+/* ---------- Next case study ---------- */
+.next-nav {
+  padding: 4rem 0 0;
+  position: relative;
+  z-index: 2;
+}
+.next-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem 2.5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.next-link:hover {
+  background: var(--surface-3);
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+.next-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.55rem;
+}
+.next-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  color: var(--text);
+}
+.next-arrow {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text);
+  transition: transform 0.35s var(--ease);
+}
+.next-link:hover .next-arrow {
+  transform: translateX(6px);
+}
+
+/* ---------- Slim contact strip on detail pages ---------- */
+.contact-strip {
+  padding: 5rem 0 4rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+.contact-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    50vmax 30vmax at 50% 100%,
+    rgba(120, 119, 198, 0.15),
+    transparent 60%
+  );
+  filter: blur(8px);
+}
+.contact-strip-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.contact-strip h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--text);
+  max-width: 22ch;
+}
+.contact-strip h2 em {
+  font-style: normal;
+  color: var(--muted);
+  font-weight: 500;
+}
+.contact-strip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+@media (max-width: 720px) {
+  .contact-strip-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

@@ -2,145 +2,386 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Danling Wei | Software Engineer</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Danling Wei — AI Engineer building production LLM applications, RAG systems, and agentic workflows. Based in New York City." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <title>Danling Wei — AI Engineer</title>
 
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
+  <!-- Google Fonts: Inter Tight ≈ SF Pro Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
 
-    h1, h2 {
-      margin-bottom: 0.5rem;
-    }
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/sections.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
 
-    h2 {
-      color: #1f2937;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.25rem;
-      margin-top: 2rem;
-    }
-
-    ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-
-    a {
-      color: #1d4ed8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 3rem;
-      padding: 1rem 0;
-      border-top: 1px solid #ccc;
-    }
-
-    .section {
-      margin-bottom: 2rem;
-    }
-
-    .contact {
-      font-size: 0.95rem;
-    }
-  </style>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Danling Wei — AI Engineer" />
+  <meta property="og:description" content="Production LLM applications, RAG systems, and agentic workflows. NYC." />
+  <meta property="og:type" content="website" />
 </head>
 <body>
 
-  <header>
-    <h1>Danling Wei</h1>
-    <p>Software Engineer | AI Chatbot · Data Pipelines · Scalable Systems</p>
-    <p class="contact">
-      New York City · <a href="mailto:career.danling.wei@gmail.com">career.danling.wei@gmail.com</a> · 
-      <a href="https://www.linkedin.com/in/danling-wei/" target="_blank">LinkedIn</a>
-    </p>
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-mark">Danling Wei</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Stack</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-meta reveal">
+        <div class="hero-meta-block">
+          <span>Portfolio · 2026</span>
+          <strong>New York City, NY</strong>
+        </div>
+        <div class="hero-meta-block" style="text-align:right;">
+          <span><span class="status-dot"></span>&nbsp; Open to AI Engineer roles</span>
+          <strong>Available immediately</strong>
+        </div>
+      </div>
+
+      <h1 class="hero-title reveal" data-delay="1">
+        Danling<br />
+        <span class="italic">Wei.</span>
+      </h1>
+
+      <div class="hero-divider"></div>
+
+      <div class="hero-bottom">
+        <p class="hero-lede reveal" data-delay="2">
+          AI Engineer building production <em>LLM applications, RAG systems, and agentic workflows</em> — end-to-end, from architecture to evaluation to rollout.
+        </p>
+        <div class="hero-cta reveal" data-delay="3">
+          <a class="btn solid" href="#contact">
+            Get in touch <span class="arrow">→</span>
+          </a>
+          <a class="btn" href="assets/Danling-Wei-Resume.pdf" target="_blank" rel="noopener">
+            Download Résumé <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll <span>↓</span></div>
   </header>
 
-  <main>
-    <section class="section">
-      <h2>About Me</h2>
-      <p>
-        I am a software engineer with experience in building production-grade AI chatbots, large-scale data pipelines, 
-        and backend systems that support millions of users. I specialize in integrating real-time data across cloud services, 
-        optimizing content delivery systems, and solving latency and scalability issues.
-      </p>
-    </section>
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">A builder of <em>intelligent systems</em> that ship to production.</h2>
+      </div>
 
-    <section class="section">
-      <h2>Work Experience</h2>
-      <h3>PiSrc LLC (Consulting for Rockwell Automation) — Full Stack Software Developer</h3>
-      <p><em>Feb 2024 – Present, New York</em></p>
-      <ul>
-        <li>Built product integration pipelines processing 500K+ records into Elasticsearch, tripling query performance.</li>
-        <li>Developed OpenAI-based chatbot with Function Calling, Redis, Weaviate, and reranking models; saved $300K/year in support cost.</li>
-        <li>Led partner locator system migration from Lucidworks to Elasticsearch; cut latency by 50% and enabled geo-based partner insights.</li>
-        <li>Contributed to content recommendation engine boosting documentation CTR by 40%.</li>
-      </ul>
+      <div class="about-grid">
+        <aside class="about-side reveal">
+          <div>Currently<span>Software Engineer @ PiSrc</span></div>
+          <div>Focus<span>LLM Apps · RAG · Agents</span></div>
+          <div>Experience<span>2+ years in production AI</span></div>
+          <div>Education<span>Columbia University, M.S.</span></div>
+        </aside>
 
-      <h3>Datalynn LLC — Software Engineer Intern</h3>
-      <p><em>Jun 2023 – Dec 2023, New York</em></p>
-      <ul>
-        <li>Built a cloud-based code evaluation platform with Docker and GCP, enabling multi-language execution.</li>
-        <li>Improved backend stability with Redis caching and RabbitMQ logging pipeline.</li>
-      </ul>
-    </section>
+        <div class="about-body reveal" data-delay="1">
+          <p>
+            I design and ship production LLM systems — tool-calling agents, retrieval pipelines, and data infrastructure that move real users and real revenue.
+          </p>
+          <p>
+            My work spans the full stack of modern AI engineering: agent orchestration, hybrid retrieval, LLM evaluation, prompt engineering, and the unglamorous-but-essential plumbing of Elasticsearch, Redis, Dagster, and Docker. I care deeply about quality gates, observability, and making LLMs <em>actually reliable</em> in production.
+          </p>
+        </div>
+      </div>
 
-    <section class="section">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> Java, Python, TypeScript, JavaScript, Shell</li>
-        <li><strong>Frameworks:</strong> Spring Boot, Express.js, FastAPI, Haystack</li>
-        <li><strong>Cloud & DevOps:</strong> AWS, GCP, Azure, Mulesoft, CI/CD, Docker</li>
-        <li><strong>Data & Search:</strong> MySQL, MongoDB, Redis, Elasticsearch, Weaviate</li>
-        <li><strong>Others:</strong> REST APIs, OpenAI SDK, Function Calling, AEM, GitHub Actions, RabbitMQ</li>
-      </ul>
-    </section>
+      <!-- Metric strip -->
+      <div class="metrics reveal" data-delay="2">
+        <div class="metric">
+          <div class="metric-num">60<span class="unit">%+</span></div>
+          <div class="metric-label">Reduction in repetitive authoring time via the Skills Orchestrator</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">~40<span class="unit">%</span></div>
+          <div class="metric-label">Improvement in retrieval accuracy across the agentic RAG chatbot</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">3<span class="unit">×</span></div>
+          <div class="metric-label">Faster query performance on the Elasticsearch product index</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">$500K</div>
+          <div class="metric-label">Estimated annual savings from LLM-assisted translation pipeline</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Columbia University</strong> — M.S. in Electrical Engineering (CS Track), 2022–2023</li>
-        <li><strong>Beijing University of Technology & University College Dublin</strong> — B.S. in Software Engineering, 2018–2022</li>
-      </ul>
-    </section>
+  <!-- ===================== WORK / SELECTED PROJECTS ===================== -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Selected Work</span>
+        <h2 class="section-title">Production systems, <em>shipped &amp; measured</em>.</h2>
+      </div>
 
-    <section class="section">
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub Profile</a></li>
-        <li><a href="https://www.linkedin.com/in/danling-wei/" target="_blank">LinkedIn Profile</a></li>
-        <li><a href="mailto:career.danling.wei@gmail.com">Email Me</a></li>
-      </ul>
-    </section>
-  </main>
+      <div class="role-block reveal">
+        <span class="section-tag">Role</span>
+        <h3>Software Engineer · <em>PiSrc</em></h3>
+        <div class="role-meta">
+          New York, NY<br />
+          Mar 2024 — Present
+        </div>
+      </div>
 
-  <footer>
-    &copy; 2025 Danling Wei · Built with ❤️ and HTML
-  </footer>
+      <div class="work-list">
+        <!-- Project 1 -->
+        <a class="work-item reveal" href="projects/skills-orchestrator.html">
+          <div class="work-index">P / 01</div>
+          <div class="work-content">
+            <h3>AI Skills Orchestrator — <em>Agentic Authoring &amp; QA</em></h3>
+            <ul class="work-bullets">
+              <li>Architected and shipped a tool-calling Skills Orchestrator for AEM/CMS authoring and QA; decomposed content requests into <strong>Planner, Executor, and QA agent</strong> flows with schema-bound skills, reducing repetitive authoring time by <strong>60%+</strong>.</li>
+              <li>Built validation and evaluation gates for page structure, metadata completeness, multilingual consistency, and output format correctness; logged skill inputs, outputs, latency, and failures to support traceability.</li>
+              <li>Productionized CMS and LLM API integrations with rate limiting, retries, fallbacks, structured output validation, and human-review escalation.</li>
+            </ul>
+            <div class="work-tags">
+              <span class="tag">Tool Calling</span>
+              <span class="tag">Planner / Executor / QA</span>
+              <span class="tag">Schema-bound Skills</span>
+              <span class="tag">Structured Output</span>
+              <span class="tag">Human-in-the-Loop</span>
+            </div>
+            <span class="work-cta">View case study</span>
+          </div>
+          <aside class="work-side">
+            <div><strong>Impact</strong>60%+ less repetitive<br />authoring time</div>
+            <div><strong>Stack</strong>Python · LLM APIs · AEM</div>
+          </aside>
+        </a>
 
+        <!-- Project 2 -->
+        <a class="work-item reveal" href="projects/agentic-rag.html">
+          <div class="work-index">P / 02</div>
+          <div class="work-content">
+            <h3>Agentic RAG Chatbot — <em>Retrieval Optimization</em></h3>
+            <ul class="work-bullets">
+              <li>Upgraded a production RAG customer-support chatbot from general-purpose retrieval to an agentic workflow with <strong>intent detection, index routing, LLM-based query rewriting, hybrid retrieval, and reranking</strong>.</li>
+              <li>Designed an intent-detection layer to classify user queries and route them to the most relevant index, replacing broad retrieval with index-specific search and higher-quality rewritten queries.</li>
+              <li>Improved ingestion quality with Docling-based PDF processing, table-aware chunk enrichment, and HTML H1/H2/H3 hierarchy detection to preserve document context.</li>
+              <li>Tuned retrieval relevance with offline evaluation on representative support queries; improved retrieval accuracy by <strong>~40%</strong> and user satisfaction by <strong>~60%</strong>.</li>
+            </ul>
+            <div class="work-tags">
+              <span class="tag">Agentic RAG</span>
+              <span class="tag">Intent Routing</span>
+              <span class="tag">Query Rewriting</span>
+              <span class="tag">Hybrid Retrieval</span>
+              <span class="tag">Reranking</span>
+              <span class="tag">Docling</span>
+            </div>
+            <span class="work-cta">View case study</span>
+          </div>
+          <aside class="work-side">
+            <div><strong>Impact</strong>~40% retrieval ↑<br />~60% satisfaction ↑</div>
+            <div><strong>Stack</strong>Python · Elasticsearch · Weaviate · Redis</div>
+          </aside>
+        </a>
+
+        <!-- Project 3 -->
+        <a class="work-item reveal" href="projects/data-pipeline.html">
+          <div class="work-index">P / 03</div>
+          <div class="work-content">
+            <h3>Product Data Pipeline — <em>LLM-powered Translation &amp; Processing</em></h3>
+            <ul class="work-bullets">
+              <li>Designed an LLM-assisted pipeline ingesting <strong>500K+ product records and 100K+ daily deltas</strong> from four heterogeneous APIs into Elasticsearch, standardizing multilingual metadata for global search.</li>
+              <li>Built Dagster-based batch and incremental workflows with idempotent processing, schema evolution, backfill and repair paths, validation checks, failure recovery, and observability.</li>
+              <li>Redesigned Elasticsearch indexing strategy and data flow, improving query performance by <strong>3×</strong> and reducing manual operations by <strong>~40%</strong>.</li>
+              <li>Automated multilingual product translation with an LLM-assisted pipeline, contributing to <strong>~$500K</strong> estimated annual translation cost savings.</li>
+            </ul>
+            <div class="work-tags">
+              <span class="tag">Dagster</span>
+              <span class="tag">Elasticsearch</span>
+              <span class="tag">LLM Translation</span>
+              <span class="tag">Idempotent ETL</span>
+              <span class="tag">Schema Evolution</span>
+              <span class="tag">Observability</span>
+            </div>
+            <span class="work-cta">View case study</span>
+          </div>
+          <aside class="work-side">
+            <div><strong>Impact</strong>3× faster queries<br />~$500K saved / yr</div>
+            <div><strong>Stack</strong>Python · Dagster · Elasticsearch · Docker</div>
+          </aside>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">03 — Stack</span>
+        <h2 class="section-title">Tools I reach for, <em>day in &amp; out</em>.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <aside class="about-side reveal">
+          <div>Philosophy<span>Boring tech, sharp evaluation</span></div>
+          <div>Default<span>Python · FastAPI · Docker</span></div>
+          <div>For LLMs<span>Tool calling + structured output</span></div>
+        </aside>
+
+        <div class="skill-rows reveal" data-delay="1">
+          <div class="skill-row">
+            <div class="skill-cat">Languages</div>
+            <div class="skill-items">
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Shell</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-cat">AI / LLM Systems</div>
+            <div class="skill-items">
+              <span class="tag">RAG</span>
+              <span class="tag">Agentic Workflows</span>
+              <span class="tag">Tool Calling</span>
+              <span class="tag">LLM Evaluation</span>
+              <span class="tag">Prompt Engineering</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-cat">Retrieval &amp; Data</div>
+            <div class="skill-items">
+              <span class="tag">Elasticsearch</span>
+              <span class="tag">Weaviate</span>
+              <span class="tag">Redis</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Dagster</span>
+              <span class="tag">Hybrid Retrieval</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-cat">Backend &amp; Infra</div>
+            <div class="skill-items">
+              <span class="tag">FastAPI</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Docker</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Azure</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-cat">Quality &amp; Eval</div>
+            <div class="skill-items">
+              <span class="tag">pytest</span>
+              <span class="tag">Unit Testing</span>
+              <span class="tag">Integration Testing</span>
+              <span class="tag">Retrieval Evaluation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">04 — Education</span>
+        <h2 class="section-title">Trained between <em>Beijing &amp; New York</em>.</h2>
+      </div>
+
+      <div class="edu-grid">
+        <aside class="about-side reveal">
+          <div>Track<span>Computer Science</span></div>
+          <div>Years<span>2018 — 2023</span></div>
+        </aside>
+
+        <div class="edu-list reveal" data-delay="1">
+          <div class="edu-item">
+            <div>
+              <h3 class="edu-school">Columbia University</h3>
+              <div class="edu-degree">M.S., Electrical Engineering — Computer Science Track</div>
+            </div>
+            <div class="edu-meta">
+              <span>New York, USA</span>
+              <span>Sep 2022 — Dec 2023</span>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div>
+              <h3 class="edu-school">Beijing University of Technology</h3>
+              <div class="edu-degree">B.S., Software Engineering</div>
+            </div>
+            <div class="edu-meta">
+              <span>Beijing, China</span>
+              <span>Sep 2018 — Jun 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA / CONTACT ===================== -->
+  <section class="cta" id="contact">
+    <div class="cta-inner">
+      <div class="reveal">
+        <span class="section-tag">05 — Contact</span>
+      </div>
+      <div>
+        <h2 class="cta-title reveal">
+          Let’s build something <em>worth shipping.</em>
+        </h2>
+
+        <div class="cta-actions reveal" data-delay="1">
+          <a class="btn solid" href="mailto:career.danling.wei@gmail.com">
+            career.danling.wei@gmail.com <span class="arrow">→</span>
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/danling-wei/" target="_blank" rel="noopener">
+            LinkedIn <span class="arrow">↗</span>
+          </a>
+          <a class="btn" href="assets/Danling-Wei-Resume.pdf" target="_blank" rel="noopener">
+            Résumé (PDF) <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="footer-meta reveal" data-delay="2">
+          <div>Location<span>New York City, NY</span></div>
+          <div>Phone<span>(332) 209-7561</span></div>
+          <div>Status<span><span class="status-dot"></span>&nbsp; Open to AI Engineer roles</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Danling Wei — All rights reserved</span>
+      <span>Designed &amp; built in NYC · v3.0</span>
+    </div>
+  </section>
+
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>

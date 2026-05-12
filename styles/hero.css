@@ -1,0 +1,145 @@
+/* ============================================================
+   hero.css
+   Hero / above-the-fold section
+   Big bold sans display — SF Pro Display feel
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+.hero-meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.hero-meta-block strong {
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: -0.005em;
+  text-transform: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.4rem, 13vw, 11.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background: linear-gradient(180deg, #ffffff 0%, #c7c7cc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-title .italic {
+  font-style: normal;
+  font-weight: 300;
+  background: linear-gradient(180deg, #86868b 0%, #4a4a4d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 12%,
+    rgba(255, 255, 255, 0.2) 88%,
+    transparent 100%
+  );
+  margin: 2.5rem 0 2rem;
+  transform-origin: left center;
+  animation: scaleX 1.4s var(--ease) both;
+}
+@keyframes scaleX {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: end;
+}
+
+.hero-lede {
+  font-family: var(--font);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  max-width: 36ch;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+.hero-lede em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  left: var(--pad);
+  bottom: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: float 2.6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 0.65; }
+  50%      { transform: translateY(4px); opacity: 1; }
+}
+
+@media (max-width: 820px) {
+  .hero-bottom { grid-template-columns: 1fr; }
+  .hero-cta { align-items: flex-start; text-align: left; }
+}
+@media (max-width: 540px) {
+  .hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

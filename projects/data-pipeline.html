@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study — Product Data Pipeline: LLM-powered translation and multilingual product ingestion by Danling Wei." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <title>Product Data Pipeline — Danling Wei</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/sections.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+  <link rel="stylesheet" href="../styles/project.css" />
+
+  <meta property="og:title" content="Product Data Pipeline — Danling Wei" />
+  <meta property="og:description" content="LLM-powered translation and multilingual product ingestion at scale — Dagster + Elasticsearch." />
+  <meta property="og:type" content="article" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-mark">Danling Wei</a>
+      <div class="nav-links">
+        <a href="../#about">About</a>
+        <a href="../#work">Work</a>
+        <a href="../#skills">Stack</a>
+        <a href="../#education">Education</a>
+        <a href="../#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== PROJECT HERO ===================== -->
+  <header class="project-hero">
+    <div class="wrap">
+      <a class="back-link reveal" href="../#work">Back to selected work</a>
+
+      <div class="project-tag-row reveal" data-delay="1">
+        <span>Case Study · P / 03</span>
+        <span>PiSrc · Mar 2024 — Present</span>
+        <span>New York, NY</span>
+      </div>
+
+      <h1 class="project-title reveal" data-delay="2">
+        Product Data <em>Pipeline.</em>
+      </h1>
+
+      <p class="project-sub reveal" data-delay="3">
+        An LLM-assisted ingestion pipeline standardizing <em>multilingual product metadata</em> across four heterogeneous APIs — at half a million records and 100K+ daily deltas.
+      </p>
+
+      <div class="metrics reveal" data-delay="4">
+        <div class="metric">
+          <div class="metric-num">500K<span class="unit">+</span></div>
+          <div class="metric-label">Product records ingested from four heterogeneous APIs</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">100K<span class="unit">/day</span></div>
+          <div class="metric-label">Daily incremental deltas processed end-to-end</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">3<span class="unit">×</span></div>
+          <div class="metric-label">Faster Elasticsearch query performance after redesign</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">$500K</div>
+          <div class="metric-label">Estimated annual translation cost savings</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== OVERVIEW ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">01 — Overview</span>
+        <h2 class="section-title">Multilingual product search, <em>standardized at scale</em>.</h2>
+      </div>
+
+      <div class="about-grid">
+        <aside class="about-side reveal">
+          <div>Role<span>Software Engineer</span></div>
+          <div>Domain<span>Data ingestion · Search</span></div>
+          <div>Focus<span>ETL · LLM translation · ES</span></div>
+          <div>Timeline<span>2024 — Present</span></div>
+        </aside>
+
+        <div class="about-body reveal" data-delay="1">
+          <p>
+            Four upstream APIs, four schemas, multiple languages — and a single global search index that needed to stay consistent across all of them.
+          </p>
+          <p>
+            I designed an LLM-assisted Dagster pipeline that ingests, normalizes, translates, and indexes product metadata at scale. The system is <em>idempotent, observable, and self-repairing</em>: backfills, schema evolution, and validation failures are all first-class paths, not afterthoughts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HIGHLIGHTS ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Highlights</span>
+        <h2 class="section-title">What I <em>built</em>.</h2>
+      </div>
+
+      <ul class="highlights">
+        <li class="highlight reveal">
+          <div class="highlight-num">01</div>
+          <div class="highlight-body">
+            <h3>Multi-source ingestion at scale</h3>
+            <p>
+              Designed an LLM-assisted data pipeline ingesting <strong>500K+ product records and 100K+ daily deltas</strong> from four heterogeneous APIs into Elasticsearch, standardizing multilingual product metadata for global search.
+            </p>
+          </div>
+        </li>
+        <li class="highlight reveal">
+          <div class="highlight-num">02</div>
+          <div class="highlight-body">
+            <h3>Dagster workflows, built for production</h3>
+            <p>
+              Built Dagster-based batch and incremental workflows with <strong>idempotent processing, schema evolution, backfill and repair paths, validation checks, failure recovery, and observability</strong>.
+            </p>
+          </div>
+        </li>
+        <li class="highlight reveal">
+          <div class="highlight-num">03</div>
+          <div class="highlight-body">
+            <h3>Elasticsearch indexing redesign</h3>
+            <p>
+              Redesigned Elasticsearch indexing strategy and data processing flow, improving <strong>query performance by 3×</strong> and reducing manual operations by <strong>~40%</strong>.
+            </p>
+          </div>
+        </li>
+        <li class="highlight reveal">
+          <div class="highlight-num">04</div>
+          <div class="highlight-body">
+            <h3>LLM-assisted translation</h3>
+            <p>
+              Automated multilingual product translation with an LLM-assisted pipeline, replacing manual translation workflows and contributing to <strong>~$500K estimated annual translation cost savings</strong>.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== STACK ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">03 — Stack</span>
+        <h2 class="section-title">Tools &amp; <em>techniques</em>.</h2>
+      </div>
+
+      <div class="project-stack reveal">
+        <span class="tag">Python</span>
+        <span class="tag">Dagster</span>
+        <span class="tag">Elasticsearch</span>
+        <span class="tag">LLM Translation</span>
+        <span class="tag">Idempotent ETL</span>
+        <span class="tag">Schema Evolution</span>
+        <span class="tag">Backfill / Repair</span>
+        <span class="tag">Validation Checks</span>
+        <span class="tag">Observability</span>
+        <span class="tag">Docker</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NEXT CASE STUDY ===================== -->
+  <section class="next-nav">
+    <div class="wrap">
+      <a class="next-link reveal" href="skills-orchestrator.html">
+        <div>
+          <span class="next-label">Back to case study · P / 01</span>
+          <span class="next-title">AI Skills Orchestrator — Agentic Authoring &amp; QA</span>
+        </div>
+        <span class="next-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT STRIP ===================== -->
+  <section class="contact-strip">
+    <div class="contact-strip-inner">
+      <h2 class="reveal">Have a system worth <em>shipping?</em></h2>
+      <div class="contact-strip-actions reveal" data-delay="1">
+        <a class="btn solid" href="mailto:career.danling.wei@gmail.com">
+          career.danling.wei@gmail.com <span class="arrow">→</span>
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/danling-wei/" target="_blank" rel="noopener">
+          LinkedIn <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Danling Wei — All rights reserved</span>
+      <span>Designed &amp; built in NYC · v3.0</span>
+    </div>
+  </section>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

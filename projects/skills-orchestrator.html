@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study — AI Skills Orchestrator: agentic authoring & QA agents on AEM/CMS by Danling Wei." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <title>AI Skills Orchestrator — Danling Wei</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/sections.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+  <link rel="stylesheet" href="../styles/project.css" />
+
+  <meta property="og:title" content="AI Skills Orchestrator — Danling Wei" />
+  <meta property="og:description" content="Agentic authoring & QA agents for enterprise CMS — Planner / Executor / QA flows." />
+  <meta property="og:type" content="article" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-mark">Danling Wei</a>
+      <div class="nav-links">
+        <a href="../#about">About</a>
+        <a href="../#work">Work</a>
+        <a href="../#skills">Stack</a>
+        <a href="../#education">Education</a>
+        <a href="../#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== PROJECT HERO ===================== -->
+  <header class="project-hero">
+    <div class="wrap">
+      <a class="back-link reveal" href="../#work">Back to selected work</a>
+
+      <div class="project-tag-row reveal" data-delay="1">
+        <span>Case Study · P / 01</span>
+        <span>PiSrc · Mar 2024 — Present</span>
+        <span>New York, NY</span>
+      </div>
+
+      <h1 class="project-title reveal" data-delay="2">
+        AI Skills <em>Orchestrator.</em>
+      </h1>
+
+      <p class="project-sub reveal" data-delay="3">
+        A tool-calling orchestrator for AEM/CMS authoring and QA — decomposing content requests into <em>Planner, Executor, and QA agent</em> flows with schema-bound skills, validation gates, and full traceability.
+      </p>
+
+      <div class="metrics reveal" data-delay="4">
+        <div class="metric">
+          <div class="metric-num">60<span class="unit">%+</span></div>
+          <div class="metric-label">Reduction in repetitive authoring time</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">3<span class="unit">agents</span></div>
+          <div class="metric-label">Planner · Executor · QA — composable roles</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">100<span class="unit">%</span></div>
+          <div class="metric-label">Skill calls logged for traceability and quality analysis</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">0</div>
+          <div class="metric-label">Malformed LLM outputs reaching production content</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== OVERVIEW ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">01 — Overview</span>
+        <h2 class="section-title">Turning unstructured authoring into a <em>repeatable agent workflow</em>.</h2>
+      </div>
+
+      <div class="about-grid">
+        <aside class="about-side reveal">
+          <div>Role<span>Software Engineer</span></div>
+          <div>Domain<span>AEM / CMS · Content Ops</span></div>
+          <div>Focus<span>Agent orchestration · QA</span></div>
+          <div>Timeline<span>Mar 2024 — Present</span></div>
+        </aside>
+
+        <div class="about-body reveal" data-delay="1">
+          <p>
+            Authoring teams were spending hours on repetitive content tasks — drafting pages, populating metadata, and verifying multilingual consistency by hand.
+          </p>
+          <p>
+            I architected and shipped a tool-calling Skills Orchestrator that decomposes a content request into three cooperating agents — <em>Planner, Executor, and QA</em> — each operating on schema-bound skills. The system writes nothing to production until it passes structured validation, with human review escalations on the edge cases.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HIGHLIGHTS ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Highlights</span>
+        <h2 class="section-title">What I <em>built</em>.</h2>
+      </div>
+
+      <ul class="highlights">
+        <li class="highlight reveal">
+          <div class="highlight-num">01</div>
+          <div class="highlight-body">
+            <h3>Tool-calling agent decomposition</h3>
+            <p>
+              Architected and shipped a tool-calling Skills Orchestrator for AEM/CMS authoring and QA; decomposed content requests into <strong>Planner, Executor, and QA agent</strong> flows with schema-bound skills, reducing repetitive authoring time by 60%+.
+            </p>
+          </div>
+        </li>
+        <li class="highlight reveal">
+          <div class="highlight-num">02</div>
+          <div class="highlight-body">
+            <h3>Validation &amp; evaluation gates</h3>
+            <p>
+              Built validation and evaluation gates for page structure, metadata completeness, multilingual consistency, and output format correctness; logged skill inputs, outputs, latency, and failures to support traceability and quality analysis.
+            </p>
+          </div>
+        </li>
+        <li class="highlight reveal">
+          <div class="highlight-num">03</div>
+          <div class="highlight-body">
+            <h3>Production-grade LLM integrations</h3>
+            <p>
+              Productionized CMS and LLM API integrations with <strong>rate limiting, retries, fallbacks, structured output validation, and human-review escalation</strong> to prevent malformed LLM output from ever reaching production content.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== STACK ===================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">03 — Stack</span>
+        <h2 class="section-title">Tools &amp; <em>techniques</em>.</h2>
+      </div>
+
+      <div class="project-stack reveal">
+        <span class="tag">Python</span>
+        <span class="tag">Tool Calling</span>
+        <span class="tag">Planner / Executor / QA</span>
+        <span class="tag">Schema-bound Skills</span>
+        <span class="tag">Structured Output</span>
+        <span class="tag">Validation Gates</span>
+        <span class="tag">Human-in-the-Loop</span>
+        <span class="tag">LLM Evaluation</span>
+        <span class="tag">Observability</span>
+        <span class="tag">AEM</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NEXT CASE STUDY ===================== -->
+  <section class="next-nav">
+    <div class="wrap">
+      <a class="next-link reveal" href="agentic-rag.html">
+        <div>
+          <span class="next-label">Next case study · P / 02</span>
+          <span class="next-title">Agentic RAG Chatbot — Retrieval Optimization</span>
+        </div>
+        <span class="next-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT STRIP ===================== -->
+  <section class="contact-strip">
+    <div class="contact-strip-inner">
+      <h2 class="reveal">Have a system worth <em>shipping?</em></h2>
+      <div class="contact-strip-actions reveal" data-delay="1">
+        <a class="btn solid" href="mailto:career.danling.wei@gmail.com">
+          career.danling.wei@gmail.com <span class="arrow">→</span>
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/danling-wei/" target="_blank" rel="noopener">
+          LinkedIn <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Danling Wei — All rights reserved</span>
+      <span>Designed &amp; built in NYC · v3.0</span>
+    </div>
+  </section>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>
