@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study - AI Job Analyzer: local Qwen QLoRA skill extraction, evaluation, and hybrid inference by Danling Wei." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <title>AI Job Analyzer - Danling Wei</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/sections.css" />
+  <link rel="stylesheet" href="../styles/diagrams.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+  <link rel="stylesheet" href="../styles/project.css" />
+
+  <meta property="og:title" content="AI Job Analyzer - Danling Wei" />
+  <meta property="og:description" content="Local Qwen QLoRA skill extraction with hybrid inference, canonicalization, and evaluation." />
+  <meta property="og:type" content="article" />
+  <script src="../scripts/analytics.js"></script>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-mark">Danling Wei</a>
+      <div class="nav-links">
+        <a href="../#about">About</a>
+        <a href="../#work">Work</a>
+        <a href="../#skills">Stack</a>
+        <a href="../#education">Education</a>
+        <a href="../#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="project-hero">
+    <div class="wrap">
+      <a class="back-link reveal" href="../#work">Back to selected work</a>
+      <div class="project-tag-row reveal" data-delay="1">
+        <span>Case Study / P / 04</span>
+        <span>Personal Project / 2026</span>
+        <span>Local LLM / QLoRA / Evaluation</span>
+      </div>
+      <h1 class="project-title reveal" data-delay="2">AI Job <em>Analyzer.</em></h1>
+      <p class="project-sub reveal" data-delay="3">
+        An evaluation-driven LLM application that turns job postings into a clean skill intelligence report using a locally fine-tuned Qwen adapter, deterministic skill canonicalization, and a cloud finalizer for polished summaries.
+      </p>
+      <div class="project-actions reveal" data-delay="4">
+        <a class="btn solid" href="https://github.com/danling-wei/ai-job-analyzer" target="_blank" rel="noopener">GitHub Repository <span class="arrow">external</span></a>
+        <a class="btn" href="../assets/Danling-Wei-Resume.pdf" target="_blank" rel="noopener">Resume PDF <span class="arrow">external</span></a>
+      </div>
+      <div class="metrics reveal" data-delay="4">
+        <div class="metric"><div class="metric-num">299</div><div class="metric-label">Held-out evaluation samples across real job postings</div></div>
+        <div class="metric"><div class="metric-num">4<span class="unit">runs</span></div><div class="metric-label">Base Qwen, GPT-5-mini, compact QLoRA, and skills-only QLoRA compared</div></div>
+        <div class="metric"><div class="metric-num">1.7<span class="unit">B</span></div><div class="metric-label">Qwen3 local model fine-tuned with QLoRA for skill extraction</div></div>
+        <div class="metric"><div class="metric-num">0.41</div><div class="metric-label">Semantic F1 for the latest skills-only adapter on the test split</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">01 - Product</span>
+        <h2 class="section-title">A job-market analyzer that <em>feels like a product</em>.</h2>
+      </div>
+      <figure class="case-image reveal" data-delay="1">
+        <img src="../assets/ai-job-analyzer-ui.png" alt="AI Job Analyzer web UI showing workflow progress and skill extraction results" />
+        <figcaption>The app streams each stage of the workflow - scraping, dedupe, local Qwen extraction, canonicalization, and final synthesis - then displays skills, summary, responsibilities, nice-to-have items, and source postings.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">02 - Overview</span>
+        <h2 class="section-title">From generic LLM output to <em>measured local inference</em>.</h2>
+      </div>
+      <div class="about-grid">
+        <aside class="about-side reveal">
+          <div>Role<span>AI Engineer / Full-stack Builder</span></div>
+          <div>Domain<span>Job Market / Skill Intelligence</span></div>
+          <div>Focus<span>Fine-tuning / Evaluation / Productization</span></div>
+          <div>Model<span>Qwen3-1.7B + QLoRA</span></div>
+        </aside>
+        <div class="about-body reveal" data-delay="1">
+          <p>The goal was not just to call a frontier model. I wanted to prove whether a small local model could handle the high-volume part of the workflow: extracting concrete, portfolio-verifiable skills from raw job descriptions.</p>
+          <p>I built the full loop: scrape real postings, generate teacher labels, train QLoRA adapters, evaluate against GPT-5-mini and base Qwen, then wire the best adapter back into a working FastAPI application with a clean web UI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">03 - Architecture</span>
+        <h2 class="section-title">Hybrid inference, <em>split by task difficulty</em>.</h2>
+      </div>
+      <figure class="arch-figure reveal" data-delay="1" style="margin:0;">
+        <svg class="arch-svg" viewBox="0 0 920 430" role="img" aria-label="Architecture: job postings are scraped and deduplicated, local Qwen extracts skills per posting, canonicalization normalizes skill names, a finalizer synthesizes summary and responsibilities, and evaluation compares model runs.">
+          <defs><marker id="arr-job" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="rgba(255,255,255,0.55)"/></marker></defs>
+          <text class="arch-cat" x="30" y="18">APPLICATION PIPELINE</text><rect class="arch-region" x="20" y="28" width="880" height="210" rx="18"/>
+          <rect class="arch-node arch-node-input" x="50" y="98" width="135" height="72" rx="12"/><text class="arch-cat" x="118" y="119" text-anchor="middle">SOURCE</text><text class="arch-title" x="118" y="140" text-anchor="middle">SerpApi Jobs</text><text class="arch-sub" x="118" y="156" text-anchor="middle">Real postings</text>
+          <rect class="arch-node" x="225" y="98" width="135" height="72" rx="12"/><text class="arch-cat" x="293" y="119" text-anchor="middle">CLEANUP</text><text class="arch-title" x="293" y="140" text-anchor="middle">Dedupe</text><text class="arch-sub" x="293" y="156" text-anchor="middle">Normalize JDs</text>
+          <rect class="arch-node arch-node-highlight" x="400" y="88" width="160" height="92" rx="12"/><text class="arch-cat" x="480" y="112" text-anchor="middle">LOCAL MODEL</text><text class="arch-title" x="480" y="135" text-anchor="middle">Qwen3-1.7B</text><text class="arch-sub" x="480" y="153" text-anchor="middle">QLoRA skills-only</text>
+          <rect class="arch-node arch-node-accent" x="600" y="98" width="135" height="72" rx="12"/><text class="arch-cat" x="668" y="119" text-anchor="middle">NORMALIZE</text><text class="arch-title" x="668" y="140" text-anchor="middle">Canonicalize</text><text class="arch-sub" x="668" y="156" text-anchor="middle">Stable skill map</text>
+          <rect class="arch-node arch-node-output" x="775" y="88" width="105" height="92" rx="12"/><text class="arch-cat" x="828" y="112" text-anchor="middle">FINAL</text><text class="arch-title" x="828" y="135" text-anchor="middle">Report</text><text class="arch-sub" x="828" y="153" text-anchor="middle">Summary + roles</text>
+          <line class="arch-flow" x1="185" y1="134" x2="221" y2="134" marker-end="url(#arr-job)"/><line class="arch-flow" x1="360" y1="134" x2="396" y2="134" marker-end="url(#arr-job)"/><line class="arch-flow" x1="560" y1="134" x2="596" y2="134" marker-end="url(#arr-job)"/><line class="arch-flow" x1="735" y1="134" x2="771" y2="134" marker-end="url(#arr-job)"/>
+          <text class="arch-cat" x="30" y="276">MODEL LAB</text><rect class="arch-region" x="20" y="286" width="880" height="118" rx="18"/>
+          <rect class="arch-chip" x="55" y="330" width="155" height="30" rx="12"/><text class="arch-chip-text" x="132" y="350" text-anchor="middle">Teacher labels</text>
+          <rect class="arch-chip arch-chip-accent" x="250" y="330" width="160" height="30" rx="12"/><text class="arch-chip-text" x="330" y="350" text-anchor="middle">QLoRA training</text>
+          <rect class="arch-chip" x="450" y="330" width="175" height="30" rx="12"/><text class="arch-chip-text" x="538" y="350" text-anchor="middle">Held-out eval</text>
+          <rect class="arch-chip" x="665" y="330" width="185" height="30" rx="12"/><text class="arch-chip-text" x="758" y="350" text-anchor="middle">HTML reports</text>
+        </svg>
+        <figcaption class="arch-caption reveal" data-delay="2">The key decision was to make the small local model do the narrow task it can do well: high-volume skill extraction. Canonicalization handles stable naming, while a stronger finalizer writes the lower-volume narrative sections from aggregated evidence.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="section-tag">04 - Highlights</span><h2 class="section-title">What I <em>built</em>.</h2></div>
+      <ul class="highlights">
+        <li class="highlight reveal"><div class="highlight-num">01</div><div class="highlight-body"><h3>Training data pipeline from real postings</h3><p>Collected SerpApi job postings and generated structured OpenAI teacher labels for top skills, responsibilities, nice-to-have items, evidence, and summaries, creating a domain dataset for Qwen fine-tuning.</p></div></li>
+        <li class="highlight reveal"><div class="highlight-num">02</div><div class="highlight-body"><h3>QLoRA iteration driven by evaluation</h3><p>Trained Qwen3-1.7B adapters and changed the objective after a strict smoke test showed that full JSON report generation was too heavy for the small model. The final adapter focuses on skills-only extraction for better reliability.</p></div></li>
+        <li class="highlight reveal"><div class="highlight-num">03</div><div class="highlight-body"><h3>Canonicalization layer for stable skills</h3><p>Added deterministic skill de-duplication before optional LLM cleanup so variants such as framework names, provider names, and spelling differences map to stable labels across training data and predictions.</p></div></li>
+        <li class="highlight reveal"><div class="highlight-num">04</div><div class="highlight-body"><h3>Comparable reports across model choices</h3><p>Built a repeatable evaluation harness and HTML report generator comparing base Qwen, GPT-5-mini, compact QLoRA, and skills-only QLoRA using the same held-out test split and unified semantic skill matching.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="section-tag">05 - Stack</span><h2 class="section-title">Tools &amp; <em>techniques</em>.</h2></div>
+      <div class="project-stack reveal">
+        <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Qwen3-1.7B</span><span class="tag">QLoRA</span><span class="tag">PEFT</span><span class="tag">FastAPI</span><span class="tag">Server-Sent Events</span><span class="tag">SerpApi</span><span class="tag">OpenAI Teacher Labels</span><span class="tag">LLM Evaluation</span><span class="tag">Skill Canonicalization</span><span class="tag">HTML Reports</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-nav"><div class="wrap"><a class="next-link reveal" href="skills-orchestrator.html"><div><span class="next-label">Back to case study / P / 01</span><span class="next-title">AI Skills Orchestrator - Agentic Authoring &amp; QA</span></div><span class="next-arrow">-></span></a></div></section>
+
+  <section class="contact-strip"><div class="contact-strip-inner"><h2 class="reveal">Have a system worth <em>shipping?</em></h2><div class="contact-strip-actions reveal" data-delay="1"><a class="btn solid" href="mailto:career.danling.wei@gmail.com">career.danling.wei@gmail.com <span class="arrow">-></span></a><a class="btn" href="https://www.linkedin.com/in/danling-wei/" target="_blank" rel="noopener">LinkedIn <span class="arrow">external</span></a></div></div><div class="footer-bottom"><span>Copyright <span id="year">2026</span> Danling Wei - All rights reserved</span><span>Designed &amp; built in NYC / v3.1</span></div></section>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

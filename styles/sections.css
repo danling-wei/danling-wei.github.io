@@ -322,3 +322,36 @@
   .edu-item { grid-template-columns: 1fr; gap: 0.75rem; }
   .edu-meta { text-align: left; }
 }
+
+
+/* ---------- Work card actions ---------- */
+.work-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+  margin-top: 1.5rem;
+}
+.work-actions .work-cta {
+  margin-top: 0;
+}
+.work-cta.github {
+  color: var(--text-dim);
+}
+.work-cta.github::after {
+  content: "external";
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.side-link {
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 4px;
+}
+.side-link:hover {
+  color: var(--text);
+  text-decoration-color: var(--text);
+}

@@ -1,6 +1,6 @@
-/* ============================================================
+﻿/* ============================================================
    project.css
-   Case-study detail page · Hero · Highlights · Next nav
+   Case-study detail page / Hero / Highlights / Next nav
    ============================================================ */
 
 /* ---------- Back link ---------- */
@@ -19,7 +19,7 @@
     gap 0.3s var(--ease);
 }
 .back-link::before {
-  content: "←";
+  content: "<-";
   font-size: 1.05em;
   transition: transform 0.3s var(--ease);
 }
@@ -92,7 +92,7 @@
   margin-top: 1rem;
 }
 
-/* ---------- Highlights — numbered list of feature cards ---------- */
+/* ---------- Highlights - numbered list of feature cards ---------- */
 .highlights {
   list-style: none;
   padding: 0;
@@ -284,4 +284,38 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+}
+
+/* ---------- Case-study image ---------- */
+.case-image {
+  margin: 0;
+  padding: 0.75rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.case-image img {
+  display: block;
+  width: 100%;
+  border-radius: calc(var(--radius) - 0.55rem);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.case-image figcaption {
+  margin: 1rem 0.25rem 0.25rem;
+  max-width: 78ch;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+
+/* ---------- Project hero actions ---------- */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: -1.5rem 0 3rem;
 }
