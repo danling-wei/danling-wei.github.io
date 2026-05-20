@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Case study — Agentic RAG Chatbot: intent detection, index routing, hybrid retrieval, and reranking by Danling Wei." />
+  <meta name="description" content="Case study — Agentic RAG Chatbot: Azure index routing, query rewriting, and reranking by Danling Wei." />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
   <title>Agentic RAG Chatbot — Danling Wei</title>
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="../styles/project.css" />
 
   <meta property="og:title" content="Agentic RAG Chatbot — Danling Wei" />
-  <meta property="og:description" content="Upgrading a production RAG chatbot with intent routing, hybrid retrieval, and reranking." />
+  <meta property="og:description" content="Upgrading a production RAG chatbot with Azure index routing, query rewriting, and reranking." />
   <meta property="og:type" content="article" />
 
   <!-- Analytics (GA4) — see scripts/analytics.js to set Measurement ID -->
@@ -70,11 +70,11 @@
 
       <div class="metrics reveal" data-delay="4">
         <div class="metric">
-          <div class="metric-num">~40<span class="unit">%</span></div>
+          <div class="metric-num">40<span class="unit">%</span></div>
           <div class="metric-label">Improvement in retrieval accuracy on representative support queries</div>
         </div>
         <div class="metric">
-          <div class="metric-num">~60<span class="unit">%</span></div>
+          <div class="metric-num">60<span class="unit">%</span></div>
           <div class="metric-label">Lift in user satisfaction post-upgrade</div>
         </div>
         <div class="metric">
@@ -110,7 +110,7 @@
             The previous chatbot retrieved from a single broad index — good for breadth, poor for precision. Support queries with similar wording but different intents kept landing on the wrong documents.
           </p>
           <p>
-            I redesigned the retrieval flow as an <em>agentic workflow</em>: classify intent first, route to the right index, rewrite the query for that index, retrieve hybridly, then rerank. Every stage was tuned with offline evaluation on a curated set of representative support queries.
+            I redesigned the retrieval flow as an <em>agentic workflow</em>: classify intent, route queries to Azure-hosted indexes, rewrite ambiguous questions, and rerank the final candidates. I also hardened the retrieval services with Dockerized deployment and better distributed ingestion/indexing.
           </p>
         </div>
       </div>
@@ -312,7 +312,7 @@
           <div class="highlight-body">
             <h3>Offline evaluation &amp; tuning</h3>
             <p>
-              Tuned retrieval relevance with offline evaluation on representative support queries; improved <strong>retrieval accuracy by ~40%</strong> and <strong>user satisfaction by ~60%</strong>.
+              Upgraded broad document search into Azure-hosted index routing with query rewriting and reranking, improving <strong>retrieval accuracy by 40%</strong> and <strong>user satisfaction by 60%</strong>.
             </p>
           </div>
         </li>

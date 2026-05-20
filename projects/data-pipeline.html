@@ -78,8 +78,8 @@
           <div class="metric-label">Daily incremental deltas processed end-to-end</div>
         </div>
         <div class="metric">
-          <div class="metric-num">3<span class="unit">×</span></div>
-          <div class="metric-label">Faster Elasticsearch query performance after redesign</div>
+          <div class="metric-num">Dagster</div>
+          <div class="metric-label">Batch and incremental workflows with validation and recovery paths</div>
         </div>
         <div class="metric">
           <div class="metric-num">$500K</div>
@@ -174,7 +174,7 @@
             <rect class="arch-node arch-node-output" x="730" y="80" width="180" height="80" rx="12"/>
             <text class="arch-cat" x="820" y="100" text-anchor="middle">SEARCH STORE</text>
             <text class="arch-title" x="820" y="122" text-anchor="middle">Elasticsearch</text>
-            <text class="arch-sub" x="820" y="140" text-anchor="middle">3× faster queries</text>
+            <text class="arch-sub" x="820" y="140" text-anchor="middle">Global search index</text>
           </g>
 
           <!-- ===== LLM TRANSLATION SERVICE (highlighted, separate microservice) ===== -->
@@ -221,7 +221,7 @@
           <text class="arch-flow-label" x="555" y="195">translates</text>
         </svg>
         <figcaption class="arch-caption reveal" data-delay="2">
-          Four heterogeneous product APIs (500K+ records, 100K+ daily deltas) feed a single <strong>Dagster</strong> orchestration that ingests, normalizes, and validates records. The translation step calls a <strong>dedicated LLM Translation microservice</strong> — hardened with <strong>retry</strong>, <strong>fallback</strong>, <strong>validation</strong>, and structured <strong>logging</strong> guardrails so transient model or API failures never corrupt the index. Records land in <strong>Elasticsearch</strong> with 3× faster queries and roughly <strong>$500K</strong> in annual translation cost savings.
+          Four heterogeneous product APIs (500K+ records, 100K+ daily deltas) feed a single <strong>Dagster</strong> orchestration that ingests, normalizes, and validates records. The translation step calls a <strong>dedicated LLM Translation microservice</strong> — hardened with <strong>retry</strong>, <strong>fallback</strong>, <strong>validation</strong>, and structured <strong>logging</strong> guardrails so transient model or API failures never corrupt the index. Records land in <strong>Elasticsearch</strong> with validation, observability, and roughly <strong>$500K</strong> in annual translation cost savings.
         </figcaption>
       </figure>
     </div>
@@ -241,7 +241,7 @@
           <div class="highlight-body">
             <h3>Multi-source ingestion at scale</h3>
             <p>
-              Designed an LLM-assisted data pipeline ingesting <strong>500K+ product records and 100K+ daily deltas</strong> from four heterogeneous APIs into Elasticsearch, standardizing multilingual product metadata for global search.
+              Designed an LLM-assisted product data pipeline that ingested <strong>500K+ records and 100K+ daily deltas</strong> from four APIs, normalized multilingual product metadata, and indexed results into Elasticsearch for global search.
             </p>
           </div>
         </li>
@@ -257,9 +257,9 @@
         <li class="highlight reveal">
           <div class="highlight-num">03</div>
           <div class="highlight-body">
-            <h3>Elasticsearch indexing redesign</h3>
+            <h3>Reliable batch and incremental processing</h3>
             <p>
-              Redesigned Elasticsearch indexing strategy and data processing flow, improving <strong>query performance by 3×</strong> and reducing manual operations by <strong>~40%</strong>.
+              Built Dagster workflows with <strong>idempotency, schema evolution, backfills, validation, failure recovery, and observability</strong> so daily product deltas could be processed and repaired safely.
             </p>
           </div>
         </li>
@@ -268,7 +268,7 @@
           <div class="highlight-body">
             <h3>LLM-assisted translation</h3>
             <p>
-              Automated multilingual product translation with an LLM-assisted pipeline, replacing manual translation workflows and contributing to <strong>~$500K estimated annual translation cost savings</strong>.
+              Automated multilingual product translation with an LLM-assisted pipeline, saving an estimated <strong>$500K/year</strong>.
             </p>
           </div>
         </li>

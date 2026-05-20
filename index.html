@@ -127,12 +127,12 @@
           <div class="metric-label">Improvement in retrieval accuracy across the agentic RAG chatbot</div>
         </div>
         <div class="metric">
-          <div class="metric-num">3<span class="unit">x</span></div>
-          <div class="metric-label">Faster query performance on the Elasticsearch product index</div>
+          <div class="metric-num">60<span class="unit">%</span></div>
+          <div class="metric-label">Increase in user satisfaction after RAG retrieval workflow upgrades</div>
         </div>
         <div class="metric">
           <div class="metric-num">$500K</div>
-          <div class="metric-label">Estimated annual savings from LLM-assisted translation pipeline</div>
+          <div class="metric-label">Estimated annual savings from LLM-assisted translation automation</div>
         </div>
       </div>
     </div>
@@ -162,9 +162,8 @@
           <div class="work-content">
             <h3>AI Skills Orchestrator - <em>Agentic Authoring &amp; QA</em></h3>
             <ul class="work-bullets">
-              <li>Architected and shipped a tool-calling Skills Orchestrator for AEM/CMS authoring and QA; decomposed content requests into <strong>Planner, Executor, and QA agent</strong> flows with schema-bound skills, reducing repetitive authoring time by <strong>60%+</strong>.</li>
-              <li>Built validation and evaluation gates for page structure, metadata completeness, multilingual consistency, and output format correctness; logged skill inputs, outputs, latency, and failures to support traceability.</li>
-              <li>Productionized CMS and LLM API integrations with rate limiting, retries, fallbacks, structured output validation, and human-review escalation.</li>
+              <li>Architected a LangChain/LangGraph tool-calling Skills Orchestrator for AEM/CMS authoring and QA; decomposed requests into <strong>Planner, Executor, and QA agent</strong> flows with schema-bound skills, reducing repetitive authoring time by <strong>60%+</strong>.</li>
+              <li>Added schema validation, QA checks, retry/fallback logic, execution tracing, and human-review escalation so malformed agent outputs were blocked before reaching AEM production content.</li>
             </ul>
             <div class="work-tags">
               <span class="tag">LangChain</span>
@@ -189,10 +188,8 @@
           <div class="work-content">
             <h3>Agentic RAG Chatbot - <em>Retrieval Optimization</em></h3>
             <ul class="work-bullets">
-              <li>Upgraded a production RAG customer-support chatbot from general-purpose retrieval to an agentic workflow with <strong>intent detection, index routing, LLM-based query rewriting, hybrid retrieval, and reranking</strong>.</li>
-              <li>Designed an intent-detection layer to classify user queries and route them to the most relevant index, replacing broad retrieval with index-specific search and higher-quality rewritten queries.</li>
-              <li>Improved ingestion quality with Docling-based PDF processing, table-aware chunk enrichment, and HTML H1/H2/H3 hierarchy detection to preserve document context.</li>
-              <li>Tuned retrieval relevance with offline evaluation on representative support queries; improved retrieval accuracy by <strong>~40%</strong> and user satisfaction by <strong>~60%</strong>.</li>
+              <li>Upgraded a production RAG chatbot from broad document search to an agentic retrieval workflow that routes queries to <strong>Azure-hosted indexes</strong>, rewrites ambiguous questions, and reranks results, improving retrieval accuracy by <strong>40%</strong>.</li>
+              <li>Dockerized retrieval services and improved distributed ingestion/indexing with Docling PDF processing, table-aware chunk enrichment, and HTML hierarchy detection, increasing user satisfaction by <strong>60%</strong>.</li>
             </ul>
             <div class="work-tags">
               <span class="tag">Agentic RAG</span>
@@ -205,7 +202,7 @@
             <span class="work-cta">View case study</span>
           </div>
           <aside class="work-side">
-            <div><strong>Impact</strong>~40% retrieval up<br />~60% satisfaction up</div>
+            <div><strong>Impact</strong>40% retrieval up<br />60% satisfaction up</div>
             <div><strong>Stack</strong>Python / Elasticsearch / Weaviate / Redis</div>
           </aside>
         </a>
@@ -216,10 +213,9 @@
           <div class="work-content">
             <h3>Product Data Pipeline - <em>LLM-powered Translation &amp; Processing</em></h3>
             <ul class="work-bullets">
-              <li>Designed an LLM-assisted pipeline ingesting <strong>500K+ product records and 100K+ daily deltas</strong> from four heterogeneous APIs into Elasticsearch, standardizing multilingual metadata for global search.</li>
-              <li>Built Dagster-based batch and incremental workflows with idempotent processing, schema evolution, backfill and repair paths, validation checks, failure recovery, and observability.</li>
-              <li>Redesigned Elasticsearch indexing strategy and data flow, improving query performance by <strong>3x</strong> and reducing manual operations by <strong>~40%</strong>.</li>
-              <li>Automated multilingual product translation with an LLM-assisted pipeline, contributing to <strong>~$500K</strong> estimated annual translation cost savings.</li>
+              <li>Designed an LLM-assisted product data pipeline that ingested <strong>500K+ records and 100K+ daily deltas</strong> from four APIs, normalized multilingual product metadata, and indexed results into Elasticsearch for global search.</li>
+              <li>Built Dagster batch/incremental workflows with idempotency, schema evolution, backfills, validation, failure recovery, and observability.</li>
+              <li>Automated multilingual product translation workflows, saving an estimated <strong>$500K/year</strong>.</li>
             </ul>
             <div class="work-tags">
               <span class="tag">Dagster</span>
@@ -232,7 +228,7 @@
             <span class="work-cta">View case study</span>
           </div>
           <aside class="work-side">
-            <div><strong>Impact</strong>3x faster queries<br />~$500K saved / yr</div>
+            <div><strong>Impact</strong>500K+ records<br />$500K saved / yr</div>
             <div><strong>Stack</strong>Python / Dagster / Elasticsearch / Docker</div>
           </aside>
         </a>
